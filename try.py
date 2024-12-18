@@ -96,5 +96,5 @@ fig = Figure(figsize=(5, 4), dpi=100)
 ax = fig.add_subplot(111)
 canvas = FigureCanvasTkAgg(fig, master=root)
 canvas.get_tk_widget().grid(row=0, column=2, rowspan=7, padx=10, pady=10)
-
+root.iconbitmap(default="icon.ico")
 root.mainloop()
