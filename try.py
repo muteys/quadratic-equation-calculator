@@ -48,7 +48,7 @@ def calculate():
     except ValueError:
         solution1_var.set('')
         solution2_var.set('')
-        no_real_solution_var.set('Коэфиценты должны быть числами')
+        no_real_solution_var.set('Коэффиценты должны быть числами')
 
 # Создание основного окна
 root = tk.Tk()
