@@ -11,14 +11,14 @@ def solve_quadratic(a, b, c):
     return solutions
 
 def plot_quadratic(a, b, c):
-    # Create a range of x values
+    # создаем графическое окно
     x = np.linspace(-10, 10, 400)
-    # Calculate the corresponding y values for the quadratic equation
+    # вычислением значения y для графика
     y = a * x**2 + b * x + c
 
-    # Clear the previous plot
+    # очищаем график
     ax.clear()
-    # Plot the quadratic function
+    # Рисуем график
     ax.plot(x, y, label=f'{a}x² + {b}x + {c}')
     ax.axhline(0, color='black', linewidth=0.5)
     ax.axvline(0, color='black', linewidth=0.5)
@@ -26,7 +26,7 @@ def plot_quadratic(a, b, c):
     ax.set_xlabel("x")
     ax.set_ylabel("y")
     ax.legend()
-    # Draw the updated plot
+    # обновляем график
     canvas.draw()
 
 def calculate():
@@ -46,28 +46,28 @@ def calculate():
             solution2_var.set('')
             no_real_solution_var.set('Нет действительных корней')
     except ValueError:
-        solution1_var.set('Ошибка')
-        solution2_var.set('Ошибка')
-        no_real_solution_var.set('Ошибка')
+        solution1_var.set('')
+        solution2_var.set('')
+        no_real_solution_var.set('Коэфиценты должны быть числами')
 
 # Создание основного окна
 root = tk.Tk()
 root.title("Калькулятор квадратных уравнений")
 
 # Увеличение размера окна
-root.geometry("800x400")
+root.geometry("1000x410")
 
 # Метки и поля ввода для коэффициентов
 tk.Label(root, text="Коэффициент a:").grid(row=0, column=0, padx=10, pady=10)
-entry_a = tk.Entry(root, width=20)
+entry_a = tk.Entry(root, width=40)
 entry_a.grid(row=0, column=1, padx=10, pady=10)
 
 tk.Label(root, text="Коэффициент b:").grid(row=1, column=0, padx=10, pady=10)
-entry_b = tk.Entry(root, width=20)
+entry_b = tk.Entry(root, width=40)
 entry_b.grid(row=1, column=1, padx=10, pady=10)
 
 tk.Label(root, text="Коэффициент c:").grid(row=2, column=0, padx=10, pady=10)
-entry_c = tk.Entry(root, width=20)
+entry_c = tk.Entry(root, width=40)
 entry_c.grid(row=2, column=1, padx=10, pady=10)
 
 # Кнопка для расчета
@@ -77,18 +77,18 @@ calculate_button.grid(row=3, column=0, columnspan=2, pady=20)
 # Метки и поля вывода для решений
 tk.Label(root, text="Решение 1:").grid(row=4, column=0, padx=10, pady=10)
 solution1_var = tk.StringVar()
-solution1_entry = tk.Entry(root, textvariable=solution1_var, state='readonly', width=20)
+solution1_entry = tk.Entry(root, textvariable=solution1_var, state='readonly', width=40)
 solution1_entry.grid(row=4, column=1, padx=10, pady=10)
 
 tk.Label(root, text="Решение 2:").grid(row=5, column=0, padx=10, pady=10)
 solution2_var = tk.StringVar()
-solution2_entry = tk.Entry(root, textvariable=solution2_var, state='readonly', width=20)
+solution2_entry = tk.Entry(root, textvariable=solution2_var, state='readonly', width=40)
 solution2_entry.grid(row=5, column=1, padx=10, pady=10)
 
 # Поле для вывода сообщения о недействительных корнях
 tk.Label(root, text="Сообщение:").grid(row=6, column=0, padx=10, pady=10)
 no_real_solution_var = tk.StringVar()
-no_real_solution_entry = tk.Entry(root, textvariable=no_real_solution_var, state='readonly', width=20)
+no_real_solution_entry = tk.Entry(root, textvariable=no_real_solution_var, state='readonly', width=40)
 no_real_solution_entry.grid(row=6, column=1, padx=10, pady=10)
 
 # Создание области для графика
@@ -97,5 +97,4 @@ ax = fig.add_subplot(111)
 canvas = FigureCanvasTkAgg(fig, master=root)
 canvas.get_tk_widget().grid(row=0, column=2, rowspan=7, padx=10, pady=10)
 
-# Запуск основного цикла
 root.mainloop()
