@@ -11,7 +11,6 @@ def solve_quadratic(a, b, c):
     return solutions
 
 def plot_quadratic(a, b, c):
-    # создаем графическое окно
     x = np.linspace(-10, 10, 400)
     # вычислением значения y для графика
     y = a * x**2 + b * x + c
